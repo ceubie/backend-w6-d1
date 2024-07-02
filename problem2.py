@@ -29,17 +29,18 @@ def heaviestplanet():
     counter = 0.0
     planet = []
     for body in bodies:
-        if body["mass"] is not None:
-            a = body["mass"]["massValue"]
+        if body["isPlanet"]:
+            if body["mass"] is not None:
+                a = body["mass"]["massValue"]
 
-            if a > counter:
-                counter = a
-                planet.clear()
-                planet.append(body["englishName"])
-                planet.append(a)
+                if a > counter:
+                    counter = a
+                    planet.clear()
+                    planet.append(body["englishName"])
+                    planet.append(a)
 
-            else:
-                continue
+                else:
+                    continue
 
     print(planet)
     return planet
